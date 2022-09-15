@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+.calculator {
+    padding: 10px;
+    border-radius: 1em;
+    height: auto;
+    width: auto;
+    margin: auto;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+.background {
+    background-color: pink;
+}
+#bidbtn {
+    background-color: green;
+}
+.label {
+    font-family: 'arial', sans-serif;
+    border: solid black 0.5px;
+    color: black;
+    border-radius: 5px;
+    width: 100%;
+    height: 10%;
+    text-align: center;
+    margin: auto;
+}
+
+.label #curr {
+    background-color: grey;
+    width: 15%;
+    height: 10%;
+}
+
+#increment {
+    background-color: darkblue;
+    color: white;
+    width: 15%;
+}
+.display-box {
+    font-family: 'Orbitron', sans-serif;
+    background-color: #dcdbe1;
+    border: solid black 0.5px;
+    color: black;
+    border-radius: 5px;
+    width: 95%;
+    height: 65%;
+    margin: 1px;
+    text-align: center;
+}
+.btn {
+    background-color: #fb0066;
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+    border: solid black 0.5px;
+    width: 100%;
+    border-radius: 5px;
+    height: 70%;
+    outline: none;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+.btn:active, 
+.active{
+    background-color:green;
+}
+input[type=button] {
+    font-family: 'Orbitron', sans-serif;
+    background-color: #2196F3;
+    color: white;
+    border: solid black 0.5px;
+    width: 100%;
+    border-radius: 5px;
+    height: 70%;
+    outline: none;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+input:active[type=button] {
+    background: #e5e5e5;
+    -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+    -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+    box-shadow: inset 0px 0px 5px #c1c1c1;
+}

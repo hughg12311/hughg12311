@@ -3,7 +3,7 @@
  
 <head>
   <meta charset="utf-8">
-  <title>Simple Calculator using HTML, CSS and JavaScript</title>
+  <title>$HD Clerk</title>
   <%= stylesheet_link_tag "styles" %>
 </head>
  
@@ -54,6 +54,7 @@
     <td> <input type="button" value="+150" onclick="display('+150')" /> </td>
     <td> <input type="button" value="+175" onclick="display('+175')" /> </td>
     <td> <input type="button" value="+200" onclick="display('+200')" /> </td>
+    <td colspan="1"><button class="btn" onclick="clearScreen('')" id ="calcbuttons">Sell</button></td>
   </tr>
   <tr>
     <td colspan="7"> <input class="display-box" type="button" value="Bid" onclick="calculate()" id ="bidbtn"/> </td>
@@ -65,6 +66,7 @@
     <td> <input type="button" value="+500" onclick="display('+500')" /> </td>
     <td> <input type="button" value="+600" onclick="display('+600')" /> </td>
     <td> <input type="button" value="+750" onclick="display('+750')" /> </td>
+    <td colspan="1"><button class="btn" onclick="clearScreen('')" id ="calcbuttons">Sell</button></td>
  </tr>
  <tr>
     <!-- calculate() function evaluates the mathematical expression -->
@@ -91,7 +93,7 @@
   </tr>
 </table>
  
-<%= javascript_include_tag "script"%>
+<%= javascript_include_tag "$hdscript"%>
  
 </body>
  

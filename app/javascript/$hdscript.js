@@ -23,7 +23,7 @@ function reverseincr(){
     c = document.getElementById("current").value;
     nextbid = c + reverse;
     nextbid = Function("return " + nextbid)();
-    nextbid = parseFloat(nextbid).toFixed(2)
+    nextbid = parseFloat(nextbid)
     document.getElementById("current").value = nextbid;
     updatebanner(nextbid);
 }
@@ -41,7 +41,7 @@ function customprice() {
     else if (btn.textContent.toLowerCase().includes(toggletext.toLowerCase())) {
         i = document.getElementById("custom").value;
         nextbid = Function("return " + i)();
-        nextbid = parseFloat(nextbid).toFixed(2)
+        nextbid = parseFloat(nextbid);
         document.getElementById("current").value = nextbid;
         updatebanner(nextbid);
     }}
@@ -49,7 +49,7 @@ function customprice() {
 function display(value) {
     calc = document.getElementById("custom").value += value;
     valuation = Function("return " + calc)();
-    valuation = parseFloat(valuation).toFixed(2);
+    valuation = parseFloat(valuation);
     if (btn.textContent.toLowerCase().includes(initialText.toLowerCase())) {
         document.getElementById("custom").value = "";
         console.log("true");
@@ -58,7 +58,7 @@ function display(value) {
         document.getElementById("custom").value = valuation;
         i = document.getElementById("custom").value;
         nextbid = Function("return " + i)();
-        nextbid = parseFloat(i).toFixed(2);
+        nextbid = parseFloat(i);
     }
     //document.getElementById("current").value = valuation;
     document.getElementById("incr").value = value;
@@ -70,7 +70,7 @@ function calculate() {
     c = document.getElementById("current").value;
     nextbid = c + i;
     nextbid = Function("return " + nextbid)();
-    nextbid = parseFloat(nextbid).toFixed(2)
+    nextbid = parseFloat(nextbid);
     document.getElementById("current").value = nextbid;
     updatebanner(nextbid);
 }

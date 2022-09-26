@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   get '/calc', to: 'calculator#calcview'
+  get '/ckgclerk', to: 'calculator#ckgclerk'
   # Defines the root path route ("/")
   # root "articles#index"
 end

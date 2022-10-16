@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @upcomingsale %>
+
+<div>
+  <%= link_to "Edit this upcoming sale", edit_upcomingsale_path(@upcomingsale) %> |
+  <%= link_to "Back to upcoming sales", upcomingsales_path %>
+
+  <%= button_to "Delete this sale", @upcomingsale, method: :delete %>
+</div>

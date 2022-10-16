@@ -1,0 +1,36 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class= "row">
+  <div class= 'col s10 m10 offset-s1 offset-m1'>
+  <div class="card">
+  <div class="card-content">
+    <h2>Log in</h2>
+    <p>Please fill out the form below. This area is for StockLive Staff only.</p>
+    <div class="input-field col s12">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+    <div class= "row">
+    <div class="input-field col s12">
+      <%= f.label :password %><br />
+      <%= f.password_field :password, autocomplete: "current-password" %>
+    </div>
+    </div>
+    <% if devise_mapping.rememberable? %>
+      <p>
+        <label>
+          <input type="checkbox" />
+          <span>Remember Me</span>
+        </label>
+      </p>
+    <% end %>
+    <br/>
+
+    <div class="field">
+      <%= f.submit "Log in", class: "btn" %>
+    </div>
+  <% end %>
+<%= render "devise/shared/links" %>
+  </div>
+  </div>
+  </div>
+  </div>

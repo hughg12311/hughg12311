@@ -1,0 +1,2 @@
+class Upcomingsale < ApplicationRecord
+end

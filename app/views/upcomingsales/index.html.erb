@@ -1,0 +1,57 @@
+<p style="color: green"><%= notice %></p>
+
+
+
+
+<div class= 'col s10 m10 offset-s1 offset-m1'>
+<div class="card">
+<div class="card-content" style="text-align: center;">
+<h3>Upcoming sales</h3>
+    <ul>
+    <div><h4>Filter By</h4></div>
+    <li><td id="no-width"><button class="btn-large" onclick="getsales('')"><h6 id="top filter">All Sales</h6></button></td><td id="no-width"><button class="btn-large"><h6 id="top filter">Commercial</h6></td><td id="no-width"><button class="btn-large"><h6 id="top filter">Seed Stock</h6></button></td></li>
+    <li class="collapsible-body"><td id="no-width" style="text-align: center;"><button class="btn-large"><h6>All Sales</h6></button></td><td id="no-width"><button class="btn-large"><h6>Commercial</h6></td><td id="no-width"><button class="btn-large"><h6>Seed Stock</h6></button></td></li>
+    <li class="collapsible-body"><td id="no-width" style="text-align: center;"><button class="btn-large"><h6>All Sales</h6></button></td><td id="no-width"><button class="btn-large"><h6>Commercial</h6></td><td id="no-width"><button class="btn-large"><h6>Seed Stock</h6></button></td></li>
+    </ul>
+    <%= link_to "Create New sale", new_upcomingsale_path, class: "btn" %>
+</div>
+</div>
+</div>
+
+  <ul class="pagination">
+    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+    <li class="active"><a href="#!">1</a></li>
+    <li class="waves-effect"><a href="#!">2</a></li>
+    <li class="waves-effect"><a href="#!">3</a></li>
+    <li class="waves-effect"><a href="#!">4</a></li>
+    <li class="waves-effect"><a href="#!">5</a></li>
+    <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+  </ul>
+    <table>
+      <tr><td><h6>Date</h6></td><td><h6>Sale</h6></td><td><h6>Location</h6></td><td><h6>Site</h6></td><td><h6>Sale ID</h6></td><td><h6>Starting At</h6></td></tr>
+      <% @upcomingsales.each do |upcomingsale| %>
+        <tr>
+        <td><%= upcomingsale.date %></td>
+        <td><%= upcomingsale.salename %></td>
+        <td><%= upcomingsale.location %></td>
+        <td><%= upcomingsale.site %></td>
+        <td><%= upcomingsale.sale_id %></td>
+        <td><%= upcomingsale.starting %></td>
+        <td><%= link_to "View Sale Details", upcomingsale, class: "btn" %></td>
+        <% if upcomingsale.sale_link.present?%>
+        <td><%= link_to "Catalog", upcomingsale.sale_link, class: "btn" %></td>
+        <% else %>
+        <% end %>
+        </tr>
+      <% end %>
+    </table>
+  <ul class="pagination">
+    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+    <li class="active"><a href="#!">1</a></li>
+    <li class="waves-effect"><a href="#!">2</a></li>
+    <li class="waves-effect"><a href="#!">3</a></li>
+    <li class="waves-effect"><a href="#!">4</a></li>
+    <li class="waves-effect"><a href="#!">5</a></li>
+    <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+  </ul>
+    <%= link_to "Create New sale", new_upcomingsale_path, class: "btn" %>

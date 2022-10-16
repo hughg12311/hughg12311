@@ -17,6 +17,44 @@ else if (btn.textContent.toLowerCase().includes(toggletext.toLowerCase())) {
     calcincrement.classList.toggle('background');
   }
 });
+function getindex(rindex){
+    if (lotclass == 'active'){
+        lot.classList.remove('active')
+        lotclass = document.getElementById("lot").className;
+        console.log("Row index is: " + rindex.rowIndex);
+        activeindex = rindex.rowIndex;
+        showTableData();
+        curr = document.getElementById('currentdisplay').innerHTML
+        assignlots(curr, previous_lot)}
+    else {
+        }
+}
+function getsales(){
+    lot = document.getElementById("top filter");
+    lot.classList.add('active');
+    lotclass = document.getElementById("lot").className;
+}
+function getlot(){
+    lot = document.getElementById("lot");
+    lot.classList.add('active');
+    lotclass = document.getElementById("lot").className;
+}
+function showTableData() {
+    previous_lot = document.getElementById('currentdisplay').innerHTML
+    prevdisplay.innerHTML = previous_lot
+    document.getElementById('currentdisplay').innerHTML = "";
+    var myTab = document.getElementById('lots');
+
+    // LOOP THROUGH EACH ROW OF THE TABLE AFTER HEADER.
+    i = activeindex;
+
+        // GET THE CELLS COLLECTION OF THE CURRENT ROW.
+        var objCells = myTab.rows.item(i).cells;
+
+        // LOOP THROUGH EACH CELL OF THE CURENT ROW TO READ CELL VALUES.
+        var j = 1; 
+            currentdisplay.innerHTML = currentdisplay.innerHTML + ' ' + objCells.item(j).innerHTML;
+}
 function reverseincr(){
     reverse = document.getElementById('incr').value;
     reverse = reverse.replace("+", "-")
@@ -74,6 +112,10 @@ function calculate() {
     document.getElementById("current").value = nextbid;
     updatebanner(nextbid);
 }
+function sell() {
+    document.getElementById("current").value = nextbid;
+    assignprice(nextbid);
+}
 
 var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -109,3 +151,86 @@ function postbanner(request) {
         .then(result => console.log(result))
         .catch(error => console.log('error', error));
     }
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.fixed-action-btn');
+        var instances = M.FloatingActionButton.init(elems, options);
+      });
+
+
+function assignprice(price) {
+    var raw = JSON.stringify({
+        "model": {
+            "fields": [
+            {
+                "defaultValue": "0",
+                "id": "Previous Price",
+                "title": "Price",
+                "type": "number"
+            }
+            ]
+        },
+    "payload": {
+        "Previous Price": price
+    }
+    });
+
+    var requestOptions = {
+        method: 'PUT',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+    };
+    sellbanner(requestOptions)
+}
+function sellbanner(request) {
+    fetch("https://app.singular.live/apiv1/datanodes/0wBCj9jgpuVkRLouw5GTqx/data", request)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.fixed-action-btn');
+        var instances = M.FloatingActionButton.init(elems, options);
+      });
+
+      function assignlots(current, previous) {
+        var raw = JSON.stringify({
+            "model": {
+                "fields": [
+                {
+                    "defaultValue": "",
+                    "id": "Current Lot",
+                    "title": "Current Lot",
+                    "type": "string"
+                },
+                {
+                    "defaultValue": "",
+                    "id": "Previous Lot",
+                    "title": "Previous Lot",
+                    "type": "string"
+                } ]
+            },
+        "payload": {
+            "Current Lot": current,
+            "Previous Lot": previous
+        }
+        });
+    
+        var requestOptions = {
+            method: 'PUT',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        };
+        selectlots(requestOptions)
+    }
+    function selectlots(request) {
+        fetch("https://app.singular.live/apiv1/datanodes/3Jg1CZPwWJhoP1bgJeuMK8/data", request)
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.fixed-action-btn');
+            var instances = M.FloatingActionButton.init(elems, options);
+          });

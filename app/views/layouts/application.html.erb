@@ -5,18 +5,19 @@
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
       <%= stylesheet_link_tag "materialize" %>
+      
 
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <%= csrf_meta_tags %>
       <%= csp_meta_tag %>
-
-      <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
       <%= favicon_link_tag asset_path('icon.jpg') %>
       <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body style="width: 100%; display: grid;" >
+    <p class="notice" hidden><%= notice %></p>
+    <p class="alert" hidden><%= alert %></p>
     <%= render 'layouts/header' %>
     <%= yield %>
           <%= javascript_include_tag "materialize"%>

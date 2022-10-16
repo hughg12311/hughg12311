@@ -31,6 +31,12 @@ gem "json"
 gem "uri"
 gem "net-http"
 
+gem 'jquery-rails'
+
+gem 'devise'
+# gem 'sharepoint-ruby', github: 'Plaristote/sharepoint-ruby'
+
+gem 'csv'
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
@@ -45,6 +51,9 @@ gem "tzinfo-data"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
+
+#paginate gem
+gem 'will_paginate', '~> 3.3', '>= 3.3.1'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
@@ -67,7 +76,8 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
-
+gem "gon"
+gem 'sassc-rails'
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"

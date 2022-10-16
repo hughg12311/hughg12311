@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  salename: MyString
+  location: MyString
+  site: MyString
+  sale_id: 1
+  date: 2022-10-11
+
+two:
+  salename: MyString
+  location: MyString
+  site: MyString
+  sale_id: 1
+  date: 2022-10-11

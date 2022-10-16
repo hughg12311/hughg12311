@@ -1,7 +1,17 @@
-<h2>Hello World</h2>
+<h2>Past Sales</h2>
+<ul class="collapsible">
+<div><h4 style="text-align:left; margin-bottom: 0px">Filter By</h4></div>
+<li class="collapsible-header"><td id="no-width"><button class="btn-large"><h6>All Sales</h6></button></td><td id="no-width"><button class="btn-large"><h6>Commercial</h6></td><td id="no-width"><button class="btn-large"><h6>Seed Stock</h6></button></td></li>
+<li class="collapsible-body"><td id="no-width"><button class="btn-large"><h6>All Sales</h6></button></td><td id="no-width"><button class="btn-large"><h6>Commercial</h6></td><td id="no-width"><button class="btn-large"><h6>Seed Stock</h6></button></td></li>
+<li class="collapsible-body"><td id="no-width"><button class="btn-large"><h6>All Sales</h6></button></td><td id="no-width"><button class="btn-large"><h6>Commercial</h6></td><td id="no-width"><button class="btn-large"><h6>Seed Stock</h6></button></td></li>
+</ul>
+<table>
+<thead><td>Date</td><td>Site</td><td>Sale</td><td>Starting</td><td>Location</td></thead>
+<tr><%= @allsales %></tr>
+</table>
 <p>
   The time is now: <%= Time.now %>
 </p>
-<p>This is a publihed update
+<p>This is a published update
 </p>
 <%= link_to "Clerking Interface", calc_path %>

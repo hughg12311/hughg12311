@@ -1,0 +1,2 @@
+class Slsale < ApplicationRecord
+end

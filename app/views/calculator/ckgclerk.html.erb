@@ -9,19 +9,19 @@
 <body style="min-width: 590px">
 <table class="calculator" id = "calculator">
     
-  <tr class = "slim-pad">
-    <td colspan="2" style="height:10px; padding: 5px 5px"  > <input class="display-box" type="text" id="custom" enabled /> </td>
-    <td colspan="3" style="height:10px; padding: 5px 5px"  > <input class="display-box" type="text" id="current" disabled /> </td>
-    <td colspan="2" id="increment" style="height:10px padding= 5px 5px"  > <input class="display-box" type="text" id="incr" disabled /> </td>
+  <tr class>
+    <td colspan="2" style="height:10px; padding: 5px 5px; background-color: #00a5e4"> <input class="display-box" type="text" id="custom" style=" text-align: center;" enabled /> </td>
+    <td colspan="3" style="height:10px; padding: 5px 5px; background-color: #005aaa; color: #ffffff"> <input class="display-box" type="text" id="current" style= " text-align: center;"disabled /> </td>
+    <td colspan="2" id="increment" style="height:10px padding: 5px 5px; background-color: #00a5e4"> <input class="display-box" type="text" id="incr" style= " text-align: center;" disabled /> </td>
 <!-- td rowspan = "11"><iframe src="https://app.singular.live/control/2x6ODGAGfLWFfmk7u3ZP31?noHeader=true" title="controller" height="800px" width="100%"></iframe> -->
     <!-- clearScreen() function clears all the values -->
     <!--td> <input type="button" class="btn" value="C" onclick="clearScreen()" id="btn" /> </td -->
   </tr>
   <tr> 
     <!-- Increment placeholder heading to label the price correctly -->
-    <td colspan="2"><button class="btn" style="background-color: #ef5350" onclick="customprice('')" id ="btn">Set Custom Price</button></td>
-    <td colspan="3" id ="curr"><h5>Current Price</h5></td>
-    <td colspan="2" id="increment"><h5>Increment</h5></td>
+    <td colspan="2" style="background-color: #00a5e4; text-align: center;"><button class="btn" style="background-color: #ef5350;" onclick="customprice('')" id ="btn">Set Custom Price</button></td>
+    <td colspan="3" id ="curr" style="background-color: #005aaa; color: #ffffff"><h5 style= " text-align: center;">Current Price</h5></td>
+    <td colspan="2" id="increment" style="background-color: #00a5e4"><h5 style= " text-align: center;">Increment</h5></td>
   </tr>  
   <tr>
     <td colspan="7"> <input class="btn" type="button" style="background-color: #00e676; width: 100%" value="Bid" onclick="calculate()" id ="bidbtn"/> </td>
@@ -52,7 +52,7 @@
     <td> <input type="button" class="btn" value="+0.35" onclick="display('+0.35')" /> </td>
     <td> <input type="button" class="btn" value="+0.40" onclick="display('+0.40')" /> </td>
     <td> <input type="button" class="btn" value="+0.45" onclick="display('+0.45')" /> </td>
-    <td colspan="1"><button class="btn" style="background-color: #ef5350" onclick="clearScreen('')" id ="calcbuttons">Sell</button></td>
+    <td colspan="1"><button class="btn" style="background-color: #ef5350" onclick="sell('')" id ="calcbuttons">Sell</button></td>
   </tr>
   <tr>
     <td colspan="7"> <input class="btn" type="button" style="background-color: #00e676; width: 100%" value="Bid" onclick="calculate()" id ="bidbtn"/> </td>
@@ -64,7 +64,7 @@
     <td> <input type="button" class="btn" value="+0.65" onclick="display('+0.65')" /> </td>
     <td> <input type="button" class="btn" value="+0.70" onclick="display('+0.70')" /> </td>
     <td> <input type="button" class="btn" value="+0.75" onclick="display('+0.75')" /> </td>
-    <td colspan="1"><button class="btn" style="background-color: #ef5350" onclick="clearScreen('')" id ="calcbuttons">Sell</button></td>
+    <td colspan="1"><button class="btn" style="background-color: #ef5350" onclick="sell('')" id ="calcbuttons">Sell</button></td>
  </tr>
  <tr>
     <!-- calculate() function evaluates the mathematical expression -->
@@ -78,9 +78,9 @@
   </tr>
    <tr>
     <!-- calculate() function evaluates the mathematical expression -->
-    <td> <input type="button" class="btn" value="+1.75" onclick="display('+6000')" /> </td>
-    <td> <input type="button" class="btn" value="+2.00" onclick="display('+7500')" /> </td>
-    <td> <input type="button" class="btn" value="+2.50" onclick="display('+10000')" /> </td>
+    <td> <input type="button" class="btn" value="+1.75" onclick="display('+1.75')" /> </td>
+    <td> <input type="button" class="btn" value="+2.00" onclick="display('+2.00')" /> </td>
+    <td> <input type="button" class="btn" value="+2.50" onclick="display('+2.50')" /> </td>
     <td> <input type="button" class="btn" value="+3.00" onclick="display('+3.00')" /> </td>
     <td> <input type="button" class="btn" value="+4.00" onclick="display('+4.00')" /> </td>
     <td> <input type="button" class="btn" value="+5.00" onclick="display('+5.00')" /> </td>
@@ -90,14 +90,16 @@
     <td colspan="7"> <input class="btn" type="button" style="background-color: #00e676; width: 100%" value="Bid" onclick="calculate()" id ="bidbtn"/> </td>
   </tr>
 </table>
-    <table class = "lots" id="table" style="overflow-y:scroll; height:300px; display:block;">
-      <thead><tr><th>Lot Description</th><th>Lot Name</th></tr></thead>
+  <table id="currdisp"><tr><td style="background-color: #005aaa; color: #ffffff">Current Lot</td><td id="currentdisplay"></td><td style="background-color: #005aaa; color: #ffffff">Previous Lot</td><td id="prevdisplay"></td></tr></table>
+    <div style="overflow-y:scroll; height:300px;"><table id="lots">
+      <thead><tr><th>Order ID</th><th>Lot Name</th></tr></thead>
       <% @testy.each_with_index do |lot, index|%>
-        <tr><td ><%= index %></td><td ><%= lot %></td><td><button class="btn-large">Display</button></td></tr>
+        <tr onclick="getindex(this)"><td ><%= index %></td><td id="lot"><%= lot %></td><td><button class="btn-large" onclick="getlot()">Display</button></td></tr>
       <% end %>
     </table>
+    </div>
 <%= javascript_include_tag "script"%>
  
 </body>
  
-</html>
+</html>=

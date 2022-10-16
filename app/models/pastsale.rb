@@ -1,0 +1,2 @@
+class Pastsale < ApplicationRecord
+end
